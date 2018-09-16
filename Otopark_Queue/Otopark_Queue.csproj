@@ -45,12 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Araba.cs" />
+    <Compile Include="ArabaKuyrugu.cs" />
+    <Compile Include="ArabaKuyrugu_Oncelikli.cs" />
     <Compile Include="Form_AnaEkran.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_AnaEkran.Designer.cs">
       <DependentUpon>Form_AnaEkran.cs</DependentUpon>
     </Compile>
+    <Compile Include="IQueue.cs" />
+    <Compile Include="Otopark.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form_AnaEkran.resx">

@@ -1,0 +1,10 @@
+C:\Users\MustafaCevik\source\repos\Otopark_Queue\Otopark_Queue\bin\Debug\Otopark_Queue.exe.config
+C:\Users\MustafaCevik\source\repos\Otopark_Queue\Otopark_Queue\bin\Debug\Otopark_Queue.exe
+C:\Users\MustafaCevik\source\repos\Otopark_Queue\Otopark_Queue\bin\Debug\Otopark_Queue.pdb
+C:\Users\MustafaCevik\source\repos\Otopark_Queue\Otopark_Queue\obj\Debug\Otopark_Queue.csprojResolveAssemblyReference.cache
+C:\Users\MustafaCevik\source\repos\Otopark_Queue\Otopark_Queue\obj\Debug\Otopark_Queue.frmAnaEkran.resources
+C:\Users\MustafaCevik\source\repos\Otopark_Queue\Otopark_Queue\obj\Debug\Otopark_Queue.Properties.Resources.resources
+C:\Users\MustafaCevik\source\repos\Otopark_Queue\Otopark_Queue\obj\Debug\Otopark_Queue.csproj.GenerateResource.Cache
+C:\Users\MustafaCevik\source\repos\Otopark_Queue\Otopark_Queue\obj\Debug\Otopark_Queue.csproj.CoreCompileInputs.cache
+C:\Users\MustafaCevik\source\repos\Otopark_Queue\Otopark_Queue\obj\Debug\Otopark_Queue.exe
+C:\Users\MustafaCevik\source\repos\Otopark_Queue\Otopark_Queue\obj\Debug\Otopark_Queue.pdb
