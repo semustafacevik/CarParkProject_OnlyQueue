@@ -37,18 +37,12 @@ namespace Otopark_Queue
             Kuyruk[front] = null;
 
             cikisSuresi += cikanAraba.islemSuresi; 
-
-            cikanAraba.kuyruktanCikissuresi += cikisSuresi;
+            cikanAraba.islemTamamlamasuresi += cikisSuresi;
 
             front++;
             count--;
 
             return cikanAraba;
-        }
-
-        public bool IsEmpty()
-        {
-            return (count == 0);
         }
     }
 }

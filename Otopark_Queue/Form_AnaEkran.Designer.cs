@@ -69,7 +69,9 @@
             this.txtArabaSayisi.Multiline = true;
             this.txtArabaSayisi.Name = "txtArabaSayisi";
             this.txtArabaSayisi.Size = new System.Drawing.Size(59, 31);
-            this.txtArabaSayisi.TabIndex = 1;
+            this.txtArabaSayisi.TabIndex = 0;
+            this.txtArabaSayisi.TextChanged += new System.EventHandler(this.txtArabaSayisi_TextChanged);
+            this.txtArabaSayisi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtArabaSayisi_KeyPress);
             // 
             // btnEkle
             // 
@@ -77,7 +79,7 @@
             this.btnEkle.Location = new System.Drawing.Point(372, 29);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(88, 38);
-            this.btnEkle.TabIndex = 2;
+            this.btnEkle.TabIndex = 1;
             this.btnEkle.Text = "EKLE";
             this.btnEkle.UseVisualStyleBackColor = true;
             this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
@@ -90,7 +92,7 @@
             this.lstArabalar.Location = new System.Drawing.Point(20, 124);
             this.lstArabalar.Name = "lstArabalar";
             this.lstArabalar.Size = new System.Drawing.Size(212, 148);
-            this.lstArabalar.TabIndex = 3;
+            this.lstArabalar.TabIndex = 10;
             // 
             // btnCikar
             // 
@@ -111,7 +113,7 @@
             this.lstKuyruk.Location = new System.Drawing.Point(265, 124);
             this.lstKuyruk.Name = "lstKuyruk";
             this.lstKuyruk.Size = new System.Drawing.Size(212, 148);
-            this.lstKuyruk.TabIndex = 3;
+            this.lstKuyruk.TabIndex = 11;
             // 
             // lstKuyruk_Oncelikli
             // 
@@ -121,7 +123,7 @@
             this.lstKuyruk_Oncelikli.Location = new System.Drawing.Point(514, 124);
             this.lstKuyruk_Oncelikli.Name = "lstKuyruk_Oncelikli";
             this.lstKuyruk_Oncelikli.Size = new System.Drawing.Size(212, 148);
-            this.lstKuyruk_Oncelikli.TabIndex = 3;
+            this.lstKuyruk_Oncelikli.TabIndex = 12;
             // 
             // label2
             // 
@@ -159,7 +161,7 @@
             this.btnCikar_Oncelikli.Location = new System.Drawing.Point(371, 26);
             this.btnCikar_Oncelikli.Name = "btnCikar_Oncelikli";
             this.btnCikar_Oncelikli.Size = new System.Drawing.Size(88, 45);
-            this.btnCikar_Oncelikli.TabIndex = 2;
+            this.btnCikar_Oncelikli.TabIndex = 3;
             this.btnCikar_Oncelikli.Text = "ÖNCELİKLİ ÇIKAR";
             this.btnCikar_Oncelikli.UseVisualStyleBackColor = true;
             this.btnCikar_Oncelikli.Click += new System.EventHandler(this.btnCikar_Oncelikli_Click);
@@ -172,7 +174,7 @@
             this.lstOrtIslemSuresi.Location = new System.Drawing.Point(265, 313);
             this.lstOrtIslemSuresi.Name = "lstOrtIslemSuresi";
             this.lstOrtIslemSuresi.Size = new System.Drawing.Size(212, 148);
-            this.lstOrtIslemSuresi.TabIndex = 3;
+            this.lstOrtIslemSuresi.TabIndex = 13;
             // 
             // lstOrtIslemSuresi_Oncelikli
             // 
@@ -182,7 +184,7 @@
             this.lstOrtIslemSuresi_Oncelikli.Location = new System.Drawing.Point(514, 313);
             this.lstOrtIslemSuresi_Oncelikli.Name = "lstOrtIslemSuresi_Oncelikli";
             this.lstOrtIslemSuresi_Oncelikli.Size = new System.Drawing.Size(215, 148);
-            this.lstOrtIslemSuresi_Oncelikli.TabIndex = 3;
+            this.lstOrtIslemSuresi_Oncelikli.TabIndex = 14;
             // 
             // label5
             // 
@@ -252,17 +254,17 @@
             this.lstOrtIslKazanc.Location = new System.Drawing.Point(514, 500);
             this.lstOrtIslKazanc.Name = "lstOrtIslKazanc";
             this.lstOrtIslKazanc.Size = new System.Drawing.Size(215, 148);
-            this.lstOrtIslKazanc.TabIndex = 3;
+            this.lstOrtIslKazanc.TabIndex = 15;
             // 
             // lstArabalar_Kazancli
             // 
             this.lstArabalar_Kazancli.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lstArabalar_Kazancli.FormattingEnabled = true;
             this.lstArabalar_Kazancli.ItemHeight = 16;
-            this.lstArabalar_Kazancli.Location = new System.Drawing.Point(17, 500);
+            this.lstArabalar_Kazancli.Location = new System.Drawing.Point(20, 500);
             this.lstArabalar_Kazancli.Name = "lstArabalar_Kazancli";
-            this.lstArabalar_Kazancli.Size = new System.Drawing.Size(308, 148);
-            this.lstArabalar_Kazancli.TabIndex = 3;
+            this.lstArabalar_Kazancli.Size = new System.Drawing.Size(341, 148);
+            this.lstArabalar_Kazancli.TabIndex = 16;
             // 
             // label11
             // 
@@ -296,11 +298,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnCikar);
-            this.Controls.Add(this.btnCikar_Oncelikli);
             this.Controls.Add(this.lstOrtIslemSuresi);
             this.Controls.Add(this.lstKuyruk);
             this.Controls.Add(this.btnEkle);
+            this.Controls.Add(this.btnCikar);
+            this.Controls.Add(this.btnCikar_Oncelikli);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Location = new System.Drawing.Point(300, 5);
             this.Name = "frmAnaEkran";

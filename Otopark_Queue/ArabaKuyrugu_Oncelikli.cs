@@ -21,7 +21,7 @@ namespace Otopark_Queue
 
         public void Insert(Araba yeniAraba)
         {
-            if (IsEmpty())
+            if (count == 0)
             {
                 Kuyruk[++front] = yeniAraba;
                 count++;
@@ -29,7 +29,8 @@ namespace Otopark_Queue
 
             else
             {
-                int arabaIndexi = count - 1; // Kuyruk[arabaIndexi] -> Kuyruk[2] vb.
+                int arabaIndexi; // Kuyruk[arabaIndexi] -> Kuyruk[2] vb.
+
                 for (arabaIndexi = count - 1; arabaIndexi >= 0; arabaIndexi--)
                 {
                     if (yeniAraba.islemSuresi > Kuyruk[arabaIndexi].islemSuresi) // İşlem süreleri karşılaştırılıyor.
@@ -52,18 +53,12 @@ namespace Otopark_Queue
             Kuyruk[front] = null;
 
             cikisSuresi += cikanAraba.islemSuresi; 
-
-            cikanAraba.kuyruktanCikissuresi_Oncelikli += cikisSuresi;
+            cikanAraba.islemTamamlamasuresi_Oncelikli += cikisSuresi;
 
             front--;
             count--;
 
             return cikanAraba;
-        }
-
-        public bool IsEmpty()
-        {
-            return (count == 0);
         }
     }
 }

@@ -12,14 +12,10 @@ namespace Otopark_Queue
         public int islemSuresi;
         public int kuyrukSirasi;
         public int kuyrukSirasi_Oncelikli;
-        public double kuyruktanCikissuresi;
-        public double kuyruktanCikissuresi_Oncelikli;
         public double islemTamamlamasuresi;
         public double islemTamamlamasuresi_Oncelikli;
-
-        public Araba()
-        {
-        }
+        public double ortIslemtamamlamaSuresi;
+        public double ortIslemtamamlamaSuresi_Oncelikli;
 
         public Araba(string arabaAdi, int islemSuresi)
         {

@@ -10,6 +10,5 @@ namespace Otopark_Queue
     {
         void Insert(Araba newCar);
         Araba Remove();
-        Boolean IsEmpty();
     }
 }
