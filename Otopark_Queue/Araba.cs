@@ -10,6 +10,8 @@ namespace Otopark_Queue
     {
         public string ad;
         public int islemSuresi;
+        public double kuyruktanCikisSuresi;
+        public double kuyruktanCikisSuresi_Oncelikli;
 
         public Araba()
         {

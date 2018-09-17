@@ -44,14 +44,21 @@ namespace Otopark_Queue
             }
         }
 
+        private int cikisSuresi = 0;
+
         public Araba Remove()
         {
-            throw new NotImplementedException();
-        }
+            Araba cikanAraba = Kuyruk[front];
+            Kuyruk[front] = null;
 
-        public Araba Peek()
-        {
-            throw new NotImplementedException();
+            cikisSuresi += cikanAraba.islemSuresi; 
+
+            cikanAraba.kuyruktanCikisSuresi_Oncelikli += cikisSuresi;
+
+            front--;
+            count--;
+
+            return cikanAraba;
         }
 
         public bool IsEmpty()
