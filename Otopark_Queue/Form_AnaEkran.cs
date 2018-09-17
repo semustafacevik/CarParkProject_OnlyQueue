@@ -34,6 +34,8 @@ namespace Otopark_Queue
             lstOrtIslemSuresi.Items.Clear();
             lstKuyruk_Oncelikli.Items.Clear();
             lstOrtIslemSuresi_Oncelikli.Items.Clear();
+            lstOrtIslKazanc.Items.Clear();
+            lstArabalar_Kazancli.Items.Clear();
 
             arabaSayisi = Convert.ToInt32(txtArabaSayisi.Text);
             arabaSayaci = 1;
@@ -56,25 +58,31 @@ namespace Otopark_Queue
             txtArabaSayisi.Enabled = false;
         }
 
-        double[] ortIslTamSuresi;
-        double[] ortIslTamSuresi_Oncelikli;
+        private double[] ortIslTam;
+        private double[] ortIslTam_Oncelikli;
 
         private void btnCikar_Click(object sender, EventArgs e)
         {
             arabaSayaci = 1;
-            ortIslTamSuresi = new double[arabaSayisi];
+            ortIslTam = new double[arabaSayisi];
 
             while (arabaSayaci <= arabaSayisi)
             {
+                double ortIsl = ortIslTam[arabaSayaci - 1];
+
                 Araba cikanAraba = arabaKuyrugu.Remove();
-                lstKuyruk.Items.Add(cikanAraba.ad + " - Çıkış Süresi: " + cikanAraba.kuyruktanCikisSuresi);
+                ortIsl = (cikanAraba.kuyruktanCikissuresi / Convert.ToDouble(arabaSayaci));
+                ortIsl = Math.Round(ortIsl, 2);
+                cikanAraba.kuyrukSirasi = arabaSayaci;
+                cikanAraba.islemTamamlamasuresi = ortIsl;
 
-                ortIslTamSuresi[arabaSayaci - 1] = (cikanAraba.kuyruktanCikisSuresi / Convert.ToDouble(arabaSayaci));
 
-                double ortIslTam = ortIslTamSuresi[arabaSayaci - 1];
+                //otopark.CikanArabayiEkle(cikanAraba);
 
-                lstOrtIslemSuresi.Items.Add(cikanAraba.ad + "Ort. : " + ortIslTam);
+                lstKuyruk.Items.Add(cikanAraba.kuyrukSirasi + " -> " + cikanAraba.ad + " - Süre: " + cikanAraba.kuyruktanCikissuresi + " sn");
+                lstOrtIslemSuresi.Items.Add(cikanAraba.kuyrukSirasi + " araba için ort. süre: " + cikanAraba.islemTamamlamasuresi + " sn");
 
+                ortIslTam[arabaSayaci - 1] = ortIsl;
                 arabaSayaci++;
             }
             btnCikar_Oncelikli.Show();
@@ -84,21 +92,40 @@ namespace Otopark_Queue
         private void btnCikar_Oncelikli_Click(object sender, EventArgs e)
         {
             arabaSayaci = 1;
-            ortIslTamSuresi_Oncelikli = new double[arabaSayisi];
+            ortIslTam_Oncelikli = new double[arabaSayisi];
 
             while (arabaSayaci <= arabaSayisi)
             {
-                Araba cikanAraba = arabaKuyrugu_Oncelikli.Remove();
-                lstKuyruk_Oncelikli.Items.Add(cikanAraba.ad + " - Çıkış Süresi: " + cikanAraba.kuyruktanCikisSuresi_Oncelikli);
+                double ortIsl = ortIslTam_Oncelikli[arabaSayaci - 1];
 
-                ortIslTamSuresi_Oncelikli[arabaSayaci - 1] = (cikanAraba.kuyruktanCikisSuresi_Oncelikli / Convert.ToDouble(arabaSayaci));
+                Araba cikanAraba = arabaKuyrugu_Oncelikli.Remove();                
+                ortIsl = (cikanAraba.kuyruktanCikissuresi_Oncelikli / Convert.ToDouble(arabaSayaci));
+                ortIsl = Math.Round(ortIsl, 2);
+                cikanAraba.kuyrukSirasi_Oncelikli = arabaSayaci;
+                cikanAraba.islemTamamlamasuresi_Oncelikli = ortIsl;
 
-                double ortIslTam_Oncelikli = ortIslTamSuresi_Oncelikli[arabaSayaci - 1];
-                double ortIslTam = ortIslTamSuresi[arabaSayaci - 1];
-                double kazanc = ortIslTam_Oncelikli - ortIslTam;
+                lstOrtIslemSuresi_Oncelikli.Items.Add(cikanAraba.kuyrukSirasi_Oncelikli + " araba için ort. süre: " + cikanAraba.islemTamamlamasuresi_Oncelikli + " sn");
+                lstKuyruk_Oncelikli.Items.Add(cikanAraba.kuyrukSirasi_Oncelikli + " -> " + cikanAraba.ad + " - Süre: " + cikanAraba.kuyruktanCikissuresi_Oncelikli + " sn");
 
-                lstOrtIslemSuresi_Oncelikli.Items.Add(cikanAraba.ad + "Ort. : " + ortIslTam_Oncelikli + " -- k : " + kazanc);
+                ortIslTam_Oncelikli[arabaSayaci - 1] = ortIsl;
+                
+
+                double islemSuresi_Fark = ortIslTam[arabaSayaci - 1] - ortIslTam_Oncelikli[arabaSayaci - 1];
+                double islemSuresi_Yuzde = (islemSuresi_Fark / ortIslTam_Oncelikli[arabaSayaci - 1]) * 100;
+                islemSuresi_Fark = Math.Round(islemSuresi_Fark, 2);
+                islemSuresi_Yuzde = Math.Round(islemSuresi_Yuzde, 2);
+
+                lstOrtIslKazanc.Items.Add("Fark: " + islemSuresi_Fark + " sn - Yüzde: %" + islemSuresi_Yuzde);
                 arabaSayaci++;
+            }
+
+            foreach (Araba kazancliAraba in otopark.OtoparktakiArabalar)
+            {
+                if(kazancliAraba.kuyrukSirasi_Oncelikli < kazancliAraba.kuyrukSirasi)
+                {
+                    lstArabalar_Kazancli.Items.Add(kazancliAraba.ad + " - Kazanç: " + (kazancliAraba.kuyruktanCikissuresi - kazancliAraba.kuyruktanCikissuresi_Oncelikli) + " sn" +
+                                                   " (" + kazancliAraba.kuyrukSirasi + ". siradan -> " + kazancliAraba.kuyrukSirasi_Oncelikli + ". siraya)");
+                }
             }
 
             txtArabaSayisi.Enabled = true;

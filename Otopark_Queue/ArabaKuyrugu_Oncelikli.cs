@@ -53,7 +53,7 @@ namespace Otopark_Queue
 
             cikisSuresi += cikanAraba.islemSuresi; 
 
-            cikanAraba.kuyruktanCikisSuresi_Oncelikli += cikisSuresi;
+            cikanAraba.kuyruktanCikissuresi_Oncelikli += cikisSuresi;
 
             front--;
             count--;
