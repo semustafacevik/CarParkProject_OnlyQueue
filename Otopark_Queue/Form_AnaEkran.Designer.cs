@@ -305,6 +305,8 @@
             this.Controls.Add(this.btnCikar_Oncelikli);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Location = new System.Drawing.Point(300, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAnaEkran";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ANA EKRAN";
